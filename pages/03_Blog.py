@@ -24,7 +24,7 @@ c = conn.cursor()
 
 # Create a table if not exists
 #Wont Need next line of code since Database is already created
-#c.execute('CREATE TABLE IF NOT EXISTS posts5 (author TEXT, title TEXT, content TEXT, date DATE, time TEXT)')
+c.execute('CREATE TABLE IF NOT EXISTS posts5 (author TEXT, title TEXT, content TEXT, date DATE, time TEXT)')
 # Define some functions for interacting with the database
 def add_post(author, title, content, date, time):
     c.execute('INSERT INTO posts5 (author, title, content, date, time) VALUES (?,?,?,?,?)', (author, title, content, date, time))
