@@ -27,7 +27,7 @@ with st.container():
 
 
     with right_column:
-        headshot = st.image('/Users/edgracia/PycharmProjects/DigitalPortfolio/images/headshot.png', width=200,
+        headshot = st.image('images/headshot.png', width=200,
                             output_format="PNG")
 
 #----About me------------
@@ -51,14 +51,14 @@ with st.container():
         st.write("\n")
         st.write("\n")
         st.write("\n")
-        loomis = st.image('/Users/edgracia/PycharmProjects/DigitalPortfolio/images/loomislogo.jpeg', width=200,
+        loomis = st.image('images/loomislogo.jpeg', width=200,
                             output_format="PNG")
         st.write("\n")
         st.write("\n")
         st.write("\n")
         st.write("\n")
         st.write("\n")
-        miami = st.image('/Users/edgracia/PycharmProjects/DigitalPortfolio/images/umiamilogo.png', width=200,
+        miami = st.image('images/umiamilogo.png', width=200,
                             output_format="PNG")
 
 
