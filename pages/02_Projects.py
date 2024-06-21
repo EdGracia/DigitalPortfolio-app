@@ -33,7 +33,7 @@ with st.container():
         st.subheader("Projects in Progress: ")
         link_button = st.button(label="Find out more about what I'm working on!")
         if link_button:
-            st.page_link("/Users/edgracia/PycharmProjects/DigitalPortfolio/pages/03_Blog.py")
+            st.page_link("pages/03_Blog.py")
 
     with right_column:
         st_lottie(lottie_coding, height=300, key="projects")
