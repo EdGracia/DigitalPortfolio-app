@@ -19,7 +19,7 @@ st.title("Blog ✍️")
 
 #---Setting up blog database---
 
-with open("blog.txt") as f:
+with open("pages/blog.txt") as f:
     blogsRaw = f.readlines()
 
 blogs = []
@@ -28,7 +28,7 @@ blogs = []
 
 # Define some functions for interacting with the database
 def add_post(author, title, content, date, time):
-    with open("blog.txt", "a") as f:
+    with open("pages/blog.txt", "a") as f:
         f.write(author + "\n")
         f.write(title + "\n")
         f.write(content + "\n")
@@ -53,15 +53,15 @@ def delete_post(title):
         if temp[1] == title:
             target = (i * 5)
 
-    with open("blog.txt") as f:
+    with open("pages/blog.txt") as f:
         lines = f.readlines()
 
     for i in range(5):
         lines.pop(target)
 
-    open("blog.txt").close()
+    open("pages/blog.txt").close()
 
-    with open("blog.txt", "w") as f:
+    with open("pages/blog.txt", "w") as f:
         for line in lines:
             f.write(line)
 
