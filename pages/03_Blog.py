@@ -155,6 +155,7 @@ elif choice == "Search":
 elif choice == "Manage":
     st.header("Manage")
     st.write("Here you can delete posts or view some statistics.")
+    st.write("DONT DELETE A POST ITS STILL BROKEN!!!!!!!!!")
     # Create a selectbox to choose a post to delete
     titles = [post[1] for post in get_all_posts()]
     title = st.selectbox("Select a post to inspect", titles)
