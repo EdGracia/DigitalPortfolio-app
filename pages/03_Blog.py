@@ -18,37 +18,53 @@ st.title("Blog ✍️")
 
 
 #---Setting up blog database---
-# Connect to the database
-conn = sqlite3.connect('blog.db')
-c = conn.cursor()
 
-# Create a table if not exists
-#Wont Need next line of code since Database is already created
-c.execute('CREATE TABLE IF NOT EXISTS posts5 (author TEXT, title TEXT, content TEXT, date DATE, time TEXT)')
+with open("blog.txt") as f:
+    blogsRaw = f.readlines()
+
+blogs = []
+
+
+
 # Define some functions for interacting with the database
 def add_post(author, title, content, date, time):
-    c.execute('INSERT INTO posts5 (author, title, content, date, time) VALUES (?,?,?,?,?)', (author, title, content, date, time))
-    conn.commit()
+    with open("blog.txt", "a") as f:
+        f.write(author + "\n")
+        f.write(title + "\n")
+        f.write(content + "\n")
+        f.write(str(date) + "\n")
+        f.write(time + "\n")
 
 def get_all_posts():
-    c.execute('SELECT * FROM posts5')
-    data = c.fetchall()
-    return data
+    blogs = []
+    #parses raw into individual posts
+    for i in range(1, len(blogsRaw) - 1, 5):
+        blogs.append(blogsRaw[i - 1: i + 4])
 
-def get_post_by_title(title):
-    c.execute('SELECT * FROM posts5 WHERE title=?', (title,))
-    data = c.fetchone()
-    return data
+    return blogs
+
+
 
 def delete_post(title):
-    c.execute('DELETE FROM posts5 WHERE title=?', (title,))
-    conn.commit()
+    target = 0
+    for i in range(len(blogs) -1):
+        temp = []
+        temp = blogs[i]
+        if temp[1] == title:
+            target = (i * 5)
 
+    with open("blog.txt") as f:
+        lines = f.readlines()
 
+    for i in range(5):
+        lines.pop(target)
 
+    open("blog.txt").close()
 
-#add_post('Ed Gracia', 'blog test 01', 'This is test number 1 of the blog system', '2024-06-15')
-#print(get_all_posts())
+    with open("blog.txt", "w") as f:
+        for line in lines:
+            f.write(line)
+
 
 # Define some HTML templates for displaying the posts
 title_temp = """
