@@ -7,7 +7,7 @@ st.set_page_config(page_title="Blog Posts", page_icon="✍️", layout= "wide")
 
 #---Sidebar-----
 st.sidebar.title("Blog ✍️")
-st.sidebar.subheader("Posts about my projects")
+st.sidebar.subheader("Posts about my projects and life.")
 
 
 #----Header-----
